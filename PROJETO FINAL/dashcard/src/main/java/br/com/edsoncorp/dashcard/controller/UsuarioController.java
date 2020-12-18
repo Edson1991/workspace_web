@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.edsoncorp.dashcard.dao.UsuarioDAO;
+import br.com.edsoncorp.dashcard.model.AgenteFinanceiro;
 import br.com.edsoncorp.dashcard.model.Usuario;
 
 @RestController // @RestController Torna a sua classe (UsuarioController) de forma publica/exposta na internet, usando o "CTRL+SHIFT+O" para fazer o import da "org.springframework.web.binf.annotation.RestController"
@@ -60,19 +61,19 @@ public class UsuarioController {
 					
 	}
 	
-	
-	
-	
-	
-	
-	/*@GetMapping("/testeuser") // 
-	public  String testandoUsuario() { 
-		Usuario u = dao.findByEmailAndSenha("capitao@caverna.com","1234");
-		if (u != null) {
-			return "Usuario encontrado = " + u.getNome();
+	@PostMapping("/novouser")
+	public ResponseEntity<Usuario> adicionarNovoUsuario(@RequestBody Usuario novo) {
+		try {
+			dao.save(novo);
+			
+			return ResponseEntity.status(201).body(novo);
 		}
-		else {
-			return "Usuário não encontrado";
+		catch(Exception ex) {
+			return ResponseEntity.badRequest().build();
 		}
-	}*/
+	}
+	
+	
+	
+	
 }

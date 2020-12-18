@@ -1,6 +1,7 @@
 package br.com.edsoncorp.dashcard.dao;
-import br.com.edsoncorp.dashcard.model.Usuario;
 import org.springframework.data.repository.CrudRepository;
+
+import br.com.edsoncorp.dashcard.model.Usuario;
 
 
 // Classe que faz a manipulação de dados no BD ---> DAO significa "Data Access Object"
@@ -18,5 +19,7 @@ import org.springframework.data.repository.CrudRepository;
 	public Usuario findByEmailOrRacf(String email, String racf); // O JPA vai fazer a busca automaticamente e "retorna um objeto do tipo Usuario"
 	//Procura por email E senha
 	public Usuario findByEmailAndSenha(String email, String senha); 
+	//Grava novo user
+	public Usuario save(Usuario novo);
 
 }

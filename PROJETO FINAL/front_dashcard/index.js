@@ -38,7 +38,7 @@ function logar(){
         else if (res.status == 401){
             document.getElementById("msgErro").innerHTML = "Senha Inválida"
         }
-        else if (res.status ==404){
+        else if (res.status == 404){
             document.getElementById("msgErro").innerHTML = "Usuário Não Encontrado"
         }
         else{

@@ -1,8 +1,24 @@
+body{
+    background-color: white;
+   /* background-image: url(../front_dashcard/imagemfundo.jpg); /* Forma para colocar imagem de fundo*/
+}
+
+.cssAgenteVolume{
+    color: white;
+    order: 1px solid rgb(0, 0, 0);
+    margin-bottom: 5px;
+    background: rgb(119,182,216);
+    
+}
+
+
 .linhasucesso
 {
     border: 1px solid green;
     margin-bottom: 5px;
     background: lightgreen;
+    border-radius: 30px;
+    
 }
 
 .linhafalha
@@ -10,6 +26,7 @@
     border: 1px solid yellow;
     margin-bottom: 5px;
     background: rgb(214, 221, 149);
+    border-radius: 30px;
 }
 
 .linhafraude
@@ -17,6 +34,7 @@
     border: 1px solid red;
     margin-bottom: 5px;
     background:rgb(230, 137, 126);
+    border-radius: 30px;
 }
 
 
@@ -33,7 +51,7 @@ label{
     z-index: 10px;
 }
 
-#nomeAgenteVolumeAgente{
+#agenteVolume{
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px;

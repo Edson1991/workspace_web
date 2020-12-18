@@ -45,10 +45,12 @@ function preencheDash(lista){
         
     }
 
-    document.getElementById("nomeAgenteVolumeAgente").innerHTML =   "<h4>"+nome+"<br>"+ "Volume: "+volume+"</h4>";
-   // document.getElementById("sucessosAgente").innerHTML = "<h4>Sucesso: "+sucessos+"</h4>";
-   // document.getElementById("falhasAgente").innerHTML = "<h4>Falhas: "+falhas+"</h4>";
-   // document.getElementById("fraudesAgente").innerHTML = "<h4>Fraudes: "+fraudes+"</h4>";
+    document.getElementById("agente").innerHTML =   "<h4>"+nome+"</h4>";
+    document.getElementById("volume").innerHTML =   "<h4> Volume: "+volume+"</h4>";
+
+    document.getElementById("sucessosAgente").innerHTML = "<h4>Sucesso: "+sucessos+"</h4>";
+    document.getElementById("falhasAgente").innerHTML = "<h4>Falhas: "+falhas+"</h4>";
+    document.getElementById("fraudesAgente").innerHTML = "<h4>Fraudes: "+fraudes+"</h4>";
 
    var ctx = document.getElementById('meuGrafico');
    var myChart = new Chart(ctx, {
@@ -67,22 +69,13 @@ function preencheDash(lista){
        },
 
 
-       options : {
-           scales: {
-            xAxes: [{
-                gridLines: {
-                    color: 'rgba(0, 0, 0, 0)',
-                }
-             }],
-
-               yAxes: [{
-                   
-                    ticks: {
-                       beginAtZero: true
-                   }
-               }]
-           }
-       }
+       options: {
+        scales: {
+            gridLines: {
+                drawOnChartArea: true
+            }
+        }
+    }
    });
 }
 
