@@ -1,0 +1,57 @@
+package br.com.edsoncorp.dashcard.controller;
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.edsoncorp.dashcard.dao.UsuarioDAO;
+import br.com.edsoncorp.dashcard.model.Usuario;
+
+@RestController // @RestController Torna a sua classe (UsuarioController) de forma publica/exposta na internet, usando o "CTRL+SHIFT+O" para fazer o import da "org.springframework.web.binf.annotation.RestController"
+
+public class UsuarioController {
+
+	/* @Autowired faz a "injeção de dependência". O que é isso?
+	 * Basicamente delegamos a instanciação do objeto para a maquina virtual 
+	 * (que em outras palavras é "NÃO precisar dar NEW na variavel "UsuarioDAO dao = new UsuarioDAO()")
+	 * Mas o que acontece se nao tivermos um objeto que implementa a interface UsuarioDAO?
+	 * A propria infra-estrutura do JPA (que é framework que possui o CrudRepository) 
+	 * se encarrega de gerar uma implementação desse objeto.* 
+	 *  */
+	@Autowired 
+	UsuarioDAO dao;
+	
+	@GetMapping("/todos") // GetMapping serve para fazer chamadas via url -> Qnd vc digitar a localhost:8080/todos, vai chamar o metodo recuperarTodos
+	public ArrayList<Usuario> recuperarTodos(){	
+		ArrayList<Usuario> lista;
+		lista = (ArrayList<Usuario>)dao.findAll(); // findAll é um metodo que vem do CrudRepository
+		return lista;
+		
+	}
+	
+	@PostMapping("/testeuser") // PostMapping serve para o browser enviar informações para o backend
+	public  String testandoUsuario(@RequestBody Usuario dadosLogin) { 
+		Usuario u = dao.findByEmailAndSenha(dadosLogin.getEmail(), dadosLogin.getSenha());
+		if (u != null) {
+			return "Usuario encontrado = " + u.getNome();
+		}
+		else {
+			return "Usuário não encontrado";
+		}
+		
+	}
+	
+	@GetMapping("/testeuser") // 
+	public  String testandoUsuario() { 
+		Usuario u = dao.findByEmailAndSenha("capitao@caverna.com","1234");
+		if (u != null) {
+			return "Usuario encontrado = " + u.getNome();
+		}
+		else {
+			return "Usuário não encontrado";
+		}
+	}
+}

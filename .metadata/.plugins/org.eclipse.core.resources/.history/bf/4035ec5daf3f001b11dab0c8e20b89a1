@@ -1,0 +1,25 @@
+package br.com.edsoncorp.dashcard.controller;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.edsoncorp.dashcard.dao.AgenteFinanceiroDAO;
+import br.com.edsoncorp.dashcard.model.AgenteFinanceiro;
+
+@RestController
+public class AgenteFinanceiroController {
+
+	@Autowired
+	AgenteFinanceiroDAO dao;
+
+	@GetMapping("/agentes")
+	public ArrayList<AgenteFinanceiro> recuperarTodosAgentes(){
+		ArrayList<AgenteFinanceiro> lista;
+		lista = dao.findAllByOrderByVolumeDesc(); // findAllByOrder é um metodo que vem do CrudRepository
+		return lista;
+	}
+	
+}

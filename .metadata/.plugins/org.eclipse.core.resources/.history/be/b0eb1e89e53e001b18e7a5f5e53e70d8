@@ -1,0 +1,5 @@
+package br.com.isidrocorp.hello.model;
+
+public class Produto {
+
+}

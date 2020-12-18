@@ -1,0 +1,11 @@
+package br.com.edsoncorp.dashcard.dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+import br.com.edsoncorp.dashcard.model.Usuario;
+
+// Classe que faz a manipulação de dados no BD
+public interface UsuarioDAO extends CrudRepository<Usuario, Integer>{
+	
+	
+}

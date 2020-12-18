@@ -1,0 +1,10 @@
+package br.com.edsoncorp.dashcard.dao;
+import br.com.edsoncorp.dashcard.model.Usuario;
+import org.springframework.data.repository.CrudRepository;
+
+
+// Classe que faz a manipulação de dados no BD ---> DAO significa "Data Access Object"
+public interface UsuarioDAO extends CrudRepository<Usuario, Integer>{
+	
+	
+}

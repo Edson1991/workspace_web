@@ -1,0 +1,16 @@
+package br.com.edsoncorp.dashcard.dao;
+import java.util.ArrayList;
+import org.springframework.data.repository.CrudRepository;
+import br.com.edsoncorp.dashcard.model.AgenteFinanceiro;
+
+
+//Classe que faz a manipulação de dados no BD ---> DAO significa "Data Access Object"
+//Crud = Create, Read, Update e Delete
+
+public interface AgenteFinanceiroDAO extends CrudRepository <AgenteFinanceiro,Integer> {
+	
+	public ArrayList<AgenteFinanceiro> findAllByOrderByVolumeDesc();
+	public ArrayList<AgenteFinanceiro> findAllByOrderByIdDesc();
+	public ArrayList<AgenteFinanceiro> findAllByOrderByNameDesc();
+
+}

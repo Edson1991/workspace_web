@@ -1,0 +1,9 @@
+package br.com.edsoncorp.dashcard.dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+import br.com.edsoncorp.dashcard.model.Transacao;
+
+public interface TransacaoDAO extends CrudRepository <Transacao, Integer> {
+
+}

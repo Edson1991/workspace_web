@@ -1,0 +1,101 @@
+package br.com.edsoncorp.dashcard.model;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "mtb310_transaction")
+public class Transacao {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name ="id_transacao")
+	private int id;
+	
+	@Column(name = "data_hora")
+	private LocalDateTime dataHora;
+	
+	@Column(name = "dispositivo")
+	private int numDispositivo;
+	
+	@Column(name = "valor_solic")
+	private float valorSolicitado;
+	
+	@Column(name = "valor_aut")
+	private float valorAutorizado;
+	
+	@Column(name = "status")
+	private int	status;
+	
+	@ManyToOne //muitas transações que terao o mesmo agente, precisa da relação ManyToOne
+	@JoinColumn(name = "ag_financeiro") // usado o JoinColumn pois para linkar o "id agente" da tabela mtb310_ag_financeiro com o "ag_financeiro" da tabela mtb310_transaction, ambos são o mesmo id, entretando tem nomes de variaveis distintintos, por isso informamos com o JoinColumn, se fosse o mesmo nome não pecisaria disso.
+	private AgenteFinanceiro agente; // Chave estrangeira na tabela - Referência para a tabela ("mtb310_ag_financeiro") AgenteFinanceiro cuja chave primaria é id_agente
+
+		
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	public int getNumDispositivo() {
+		return numDispositivo;
+	}
+
+	public void setNumDispositivo(int numDispositivo) {
+		this.numDispositivo = numDispositivo;
+	}
+
+	public float getValorSolicitado() {
+		return valorSolicitado;
+	}
+
+	public void setValorSolicitado(float valorSolicitado) {
+		this.valorSolicitado = valorSolicitado;
+	}
+
+	public float getValorAutorizado() {
+		return valorAutorizado;
+	}
+
+	public void setValorAutorizado(float valorAutorizado) {
+		this.valorAutorizado = valorAutorizado;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public AgenteFinanceiro getAgente() {
+		return agente;
+	}
+
+	public void setAgente(AgenteFinanceiro agente) {
+		this.agente = agente;
+	}
+	
+	
+	
+}

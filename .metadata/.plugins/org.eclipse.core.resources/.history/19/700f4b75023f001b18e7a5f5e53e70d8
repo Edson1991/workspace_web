@@ -1,0 +1,13 @@
+#configurar porta do Tomcat
+server.port=8080
+
+#configurar usuario do banco
+spring.datasource.username = root
+
+#configurar senha de acesso ao banco
+spring.datasource.password = mysql
+
+#configurar URL do banco
+spring.datasource.url = jdbc:mysql://localhost:3306/dashcard?useTimezone=true&serverTimezone=UTC
+
+#configurar o dialeto "sotaque" do banco

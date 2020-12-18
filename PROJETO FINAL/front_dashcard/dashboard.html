@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Chamada da biblioteca do componente CSS do BootStrap atraves do site: "https://getbootstrap.com/-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="dashboard.js"></script>
+    <link href="dashboard.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+
+    <title>.: DashBoard.: </title>
+</head>
+<body onload="carregaDash()">
+
+    <!-- Chamada da biblioteca dos componentes JS do BootStrap atraves do site: "https://getbootstrap.com/-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-2">
+                <br><img src="../front_dashcard/itau-logo-1.png" width="100%">
+            </div>
+
+            <div class="col-8 text-center">
+                <br><h3>DashBoard Agente Financeiro</h3><br>
+            </div>
+            
+           
+        </div>   
+        
+    </div>    
+
+    <div class="row">
+        
+        <div class="col-3" ></div>
+        <div class="col-6 text-center" id="nomeAgenteVolumeAgente" >
+            *** aqui vai a foto do usuario ***
+        </div>
+        <div class="col-3" ></div>
+    </div>
+
+    <div class="row">
+        <div class="">
+            <br>
+        </div>
+    </div>
+  
+    <!--
+   <div class="row linhasucesso">
+         <div class="col-12 text-center" id="sucessosAgente">
+                *****
+         </div>
+    </div>
+
+    <div class="row">
+        <div class="">
+            <br>
+        </div>
+    </div>
+
+    <div class="row linhafalha">
+         <div class="col-12 text-center" id="falhasAgente">
+                *****
+         </div>
+     </div>
+
+     <div class="row">
+        <div class="">
+            <br>
+        </div>
+     </div>
+
+    <div class="row linhafraude">
+         <div class="col-12 text-center" id="fraudesAgente">
+                *****
+         </div>
+    </div>
+
+    <div class="row">
+        <div class="">
+            <br>
+        </div>
+     </div>
+
+    -->
+    <canvas id="meuGrafico" width="100%">
+        
+    </canvas>
+
+    <div class="col-2 ">
+        <br><button type="button" class="btn btn-primary" onclick="retornarAgentes()">Retornar</button>
+    </div> 
+
+</body>
+</html>

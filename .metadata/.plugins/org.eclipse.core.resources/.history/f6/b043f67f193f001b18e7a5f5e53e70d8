@@ -1,0 +1,22 @@
+package br.com.edsoncorp.dashcard.controller;
+import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import br.com.edsoncorp.dashcard.dao.UsuarioDAO;
+import br.com.edsoncorp.dashcard.model.Usuario;
+
+@RestController // @RestController Torna a sua classe (UsuarioController) de forma publica/exposta na internet, usando o "CTRL+SHIFT+O" para fazer o import da "org.springframework.web.binf.annotation.RestController"
+
+public class UsuarioController {
+
+	@Autowired // faz a "injeção de independência", que significa delegar a responsabilidade para JVM executar a implementação 
+	UsuarioDAO dao;
+	
+	@GetMapping("/todos") // GetMapping serve para fazer chamadas via url -> Qnd vc digitar a localhost:8080/totos, vai chamar o metodo recuperarTodos
+		ArrayList<Usuario> lista;
+		lista = (ArrayList<Usuario>)dao.findAll(); // findAll é um metodo que vem do CrudRepository
+		return lista;
+		
+	}
+}
